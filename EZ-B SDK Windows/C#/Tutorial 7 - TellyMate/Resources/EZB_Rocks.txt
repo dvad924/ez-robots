@@ -1,0 +1,11 @@
+EEEE ZZZZZ     BBBB  
+E       Z      B   B 
+EEE    Z   --- BBBB  
+E     Z        B   B 
+EEEE ZZZZZ     BBBB  
+
+RRRR   OOO   CCC K  K  SSS  
+R   R O   O C    K K  S     
+RRRR  O   O C    KK    SSS  
+R R   O   O C    K K      S 
+R  RR  OOO   CCC K  K SSSS  

@@ -1,0 +1,8 @@
+EEEEEE ZZZZZ      BBBB
+E          Z      B   B
+E         Z       B   B
+EEEE     Z   ---- BBBB
+E       Z         B   B
+E      Z          B   B
+EEEEEE ZZZZZ      BBBB
+

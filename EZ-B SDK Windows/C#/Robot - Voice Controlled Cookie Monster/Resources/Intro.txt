@@ -1,0 +1,6 @@
+Welcome to the EZ-B Robot Cookie Monster
+
+This demo application allows you to connect to an EZ-B and remote control the servos. It expects two wheel servos, 2 arm servos, 1 head servo, and a distance sensor.
+
+The instructions and details of this project are listed on the www.ez-robot.com website in the Robots DIY Project Section
+

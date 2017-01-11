@@ -1,0 +1,7 @@
+EZ-B Serial Server
+------------------
+W - forward
+A - left
+D - right
+S - reverse
+SPACEBAR - stop

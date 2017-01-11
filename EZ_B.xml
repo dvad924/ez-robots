@@ -1,0 +1,2310 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EZ_B</name>
+    </assembly>
+    <members>
+        <member name="M:EZ_B.ADC.GetADCValue(EZ_B.ADC.ADCPortEnum)">
+            <summary>
+             Get an integer from 0-255 (8 bits) representing the relative voltage of a specified ADC port (Between 0 and 5 volts)
+            </summary>
+        </member>
+        <member name="M:EZ_B.ADC.GetADCValue12Bit(EZ_B.ADC.ADCPortEnum)">
+            <summary>
+             Get an integer from 0-4096 (12 bits) representing the relative voltage of a specified ADC port (Between 0 and 5 volts)
+            </summary>
+        </member>
+        <member name="M:EZ_B.ADC.GetADCVoltageFromValue(System.Int32)">
+            <summary>
+            Returns the voltage relative to the inputted value. If you want to display the Value and Voltage, you can pass the value to this function rather then executing a new command. This saves bandwidth over the line.
+            </summary>
+        </member>
+        <member name="M:EZ_B.ADC.GetADCVoltage(EZ_B.ADC.ADCPortEnum)">
+            <summary>
+             Get the voltage from 0-5v of a specified ADC port
+            </summary>
+        </member>
+        <member name="T:EZ_B.ADC.ADCPortEnum">
+            <summary>
+            List of ADC Ports
+            </summary>
+        </member>
+        <member name="F:EZ_B.AutoPosition.Config">
+            <summary>
+            Set/Get the current configuration of Frames and Actions
+            </summary>
+        </member>
+        <member name="F:EZ_B.AutoPosition.Name">
+            <summary>
+            Unique name for this auto position instance
+            </summary>
+        </member>
+        <member name="M:EZ_B.AutoPosition.#ctor(EZ_B.EZB,System.String)">
+            <summary>
+            Create an instance of the AutoPosition Control
+            </summary>
+        </member>
+        <member name="M:EZ_B.AutoPosition.RequireInit">
+            <summary>
+            Set the require init flag so that the next time a transition is requested, it initializes the servos first.
+            </summary>
+        </member>
+        <member name="M:EZ_B.AutoPosition.Stop">
+            <summary>
+            Stops the current movement. Blocks until stop is successful.
+            </summary>
+        </member>
+        <member name="M:EZ_B.AutoPosition.MoveImmediate(System.String)">
+            <summary>
+            Move to the specified frame
+            </summary>
+        </member>
+        <member name="M:EZ_B.AutoPosition.MoveToFrame(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Move into the selected position from the current position
+            </summary>
+        </member>
+        <member name="M:EZ_B.AutoPosition.ExecAction(System.String)">
+            <summary>
+            Execute the Action
+            </summary>
+        </member>
+        <member name="M:EZ_B.AutoPosition.ExecAction(EZ_B.Classes.AutoPositionAction.ActionTypeEnum)">
+            <summary>
+            Execute the Action
+            </summary>
+        </member>
+        <member name="M:EZ_B.AutoPosition.DisposeOverride">
+            <summary>
+            Dispose of the AutoPositioner
+            </summary>
+        </member>
+        <member name="E:EZ_B.AutoPosition.OnComplete">
+            <summary>
+            Event risen when movement is complete
+            </summary>
+        </member>
+        <member name="E:EZ_B.AutoPosition.OnStartAction">
+            <summary>
+            Event risen when an action is started
+            </summary>
+        </member>
+        <member name="E:EZ_B.AutoPosition.OnStartFrame">
+            <summary>
+            Event risen when a frame is started
+            </summary>
+        </member>
+        <member name="P:EZ_B.AutoPosition.SetEZB">
+            <summary>
+            Set the EZB instance for this positioner
+            </summary>
+        </member>
+        <member name="M:EZ_B.BlinkM.StopScript(System.Byte)">
+            <summary>
+            Stop Script with 7 bit address
+            </summary>
+        </member>
+        <member name="M:EZ_B.BlinkM.ChangeToColor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Change the BlinkM to the specified Red/Green/Blue color
+            </summary>
+        </member>
+        <member name="M:EZ_B.BlinkM.FadeToColor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Fade the BlinkM to the specified Red/Green/Blue color
+            </summary>
+        </member>
+        <member name="M:EZ_B.BlinkM.GetCurrentColor(System.Byte)">
+            <summary>
+            Returns the current colors on the BlinkM
+            </summary>
+        </member>
+        <member name="M:EZ_B.BV4113.Stop">
+            <summary>
+             Stop
+            </summary>
+        </member>
+        <member name="M:EZ_B.BV4113.Forward">
+            <summary>
+             Move forward.
+            </summary>
+        </member>
+        <member name="M:EZ_B.BV4113.Reverse">
+            <summary> 
+             Move reverse.
+            </summary>
+        </member>
+        <member name="M:EZ_B.BV4113.Right">
+            <summary> 
+             Right.
+            </summary>
+        </member>
+        <member name="M:EZ_B.BV4113.Left">
+            <summary> 
+             Left.
+            </summary>
+        </member>
+        <member name="M:EZ_B.BV4615.GetFirmware">
+            <summary>
+            Return the firmware of the device
+            </summary>
+        </member>
+        <member name="M:EZ_B.BV4615.GetData">
+            <summary>
+            Returns a response object with the data from the buffer
+            </summary>
+        </member>
+        <member name="M:EZ_B.Classes.AutoPositionConfig.AddFrame(EZ_B.Classes.AutoPositionFrame)">
+            <summary>
+            Add a frame to the list of frames. Returns the GUID of the frame
+            </summary>
+        </member>
+        <member name="M:EZ_B.Classes.AutoPositionConfig.AddFrame(System.String)">
+            <summary>
+            Add a frame to the list of frames. Returns the GUID of the frame
+            </summary>
+        </member>
+        <member name="M:EZ_B.Classes.AutoPositionConfig.AddFrame(System.String,System.String)">
+            <summary>
+            Add a frame to the list of frames. Returns the GUID of the frame
+            </summary>
+        </member>
+        <member name="M:EZ_B.Classes.AutoPositionConfig.AddFrame(System.String,System.String,System.Int32[])">
+            <summary>
+            Add a frame to the list of frames. Returns the GUID of the frame
+            </summary>
+        </member>
+        <member name="M:EZ_B.Classes.AutoPositionConfig.AddFrame(System.String,System.Int32[])">
+            <summary>
+            Add a frame to the list of frames. Returns the GUID of the frame
+            </summary>
+        </member>
+        <member name="M:EZ_B.Classes.AutoPositionConfig.AddAction(EZ_B.Classes.AutoPositionAction)">
+            <summary>
+            Add an action to the list of actions. Returns the GUID of the action
+            </summary>
+        </member>
+        <member name="P:EZ_B.Classes.HMC5883Cls.Heading">
+            <summary>
+            Degrees are assuming compass is flat with no tilt using X and Y for easy calculation
+            heading = atan2(x, y) / 0.0174532925
+            </summary>
+        </member>
+        <member name="P:EZ_B.ConfigurationManager.BluetoothName">
+            <summary>
+            Set the bluetooth name of the EZ-B. Max 10 characters, will be truncated.
+            </summary>
+        </member>
+        <member name="M:EZ_B.Digital.SetDigitalPort(EZ_B.Digital.DigitalPortEnum,System.Boolean)">
+            <summary>
+             Set the status of a digital port. TRUE will output +5, FALSE will short to GND
+            </summary>
+            <returns>True if successful</returns>
+        </member>
+        <member name="M:EZ_B.Digital.GetLastDigitalPortSet(EZ_B.Digital.DigitalPortEnum)">
+            <summary>
+            Does not query the EZ-B Controller. This returns the status of the port after you had SetDigitalPort().
+            </summary>
+        </member>
+        <member name="M:EZ_B.Digital.Toggle(EZ_B.Digital.DigitalPortEnum)">
+            <summary>
+            Toggles the status of a digital port and returns the new status
+            </summary>
+        </member>
+        <member name="M:EZ_B.Digital.GetDigitalPort(EZ_B.Digital.DigitalPortEnum)">
+            <summary>
+            Query the status of a digital port.
+            </summary>
+        </member>
+        <member name="M:EZ_B.Digital.GetDigitalPortAsInt(EZ_B.Digital.DigitalPortEnum)">
+            <summary>
+            Query the status of a digital port as an Integer (0 false, 1 true)
+            </summary>
+        </member>
+        <member name="T:EZ_B.Digital.DigitalPortEnum">
+            <summary>
+            List of Digital Ports
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.EZBType">
+            <summary>
+            Gets the type of EZ-B that is connected
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.BV4615">
+            <summary>
+            Interact with the BV4615 i2c RC-5 Infrared Decoder
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.SureDualAxisCompass">
+            <summary>
+            The Sure Electronics i2c Dual-Axis Magnetic Sensor Module (DC-SS503V100)
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.Roomba">
+            <summary>
+            Control a iRobot Roomba
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.Uart">
+            <summary>
+            Send serial commands from any digital port
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.TellyMate">
+            <summary>
+            Communicate to a TellyMate TV Board @ 57600 on Port D1
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.Movement">
+            <summary>
+            Common methods and functionality for using Modified Servos to drive wheels.
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.Servo">
+            <summary>
+            Servo commands. Control regular and modified servos.
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.ADC">
+            <summary>
+            Analog To Digital Convertor (ADC) commands. Read voltages and values from the ADC Ports of the EZ-B
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.Digital">
+            <summary>
+            Commands to read and write digital ports on the EZ-B
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.SpeechSynth">
+            <summary>
+            Commands to have the computer speak and recognize voice commands
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.HC_SR04">
+            <summary>
+            Commands to get the distance from a HC-SR04 Ping Sensor
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.I2C">
+            <summary>
+            Send a I2C command out of the I2C interface
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.BlinkM">
+            <summary>
+            Control multicolor BlinkM via I2C interface
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.MP3Trigger">
+            <summary>
+            Control a MP3 Trigger
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.BV4113">
+            <summary>
+            Control the BV4113 EZ-Robot Motor Controller
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.Recorder">
+            <summary>
+            Allows recording and replaying of communication between the computer and EZ-B
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.MMA7455">
+            <summary>
+            MMA7455 Accelerometer
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.ConfigurationManager">
+            <summary>
+            Set hardware device settings
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.Name">
+            <summary>
+            Unique name for this EZB Instance
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.PWM">
+            <summary>
+            Control PWM (Pulse Wave Modulation) output
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.SabertoothSerial">
+            <summary>
+            Controls a sabertooth motor controller over the serial interface
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.RoboSapien">
+            <summary>
+            Control a WowWee RoboSapien
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.RoboQuad">
+            <summary>
+            Control a WowWee RoboQuad
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.AutoPosition">
+            <summary>
+            AutoPosition for Bipeds and Hexapods
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.SoundV4">
+            <summary>
+            Sound beep test for the v4
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.EZBv4Manager">
+            <summary>
+            Manages settings specific to the EZ-B v4
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.RGBEyes">
+            <summary>
+            Helper Class for controlling the RGB LED Eyes that ships with JD, and can be purchased optionally seperate
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.MIP">
+            <summary>
+            Helper Class for controlling the WowWee MIP balancing robot
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.MusicSynth">
+            <summary>
+            Helper class for making synthesized music on the ez-b v4 speaker
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZB.SerialRGBLed">
+            <summary>
+            Control the serial rgb led
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.#ctor(System.String)">
+            <summary>
+            Create an instance of the EZCommunicator and assign unique name
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.Log(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Manually send text to the log event
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.GetFirmwareVersionRaw">
+            <summary>
+            Returns the raw byte that reflects the firmware returned by the current connected EZ-B.
+            Do not use this, use the GetFirmwareVersion() instead.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EZ_B.EZB.GetFirmwareVersion">
+            <summary>
+            Return the firmware version in a string of the EZ-B
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.GetFirmwareVersionEnum">
+            <summary>
+            Return the firmware version as the enum
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.PingController">
+            <summary>
+            Sends a ping request to the EZ-B to see if it's still responding. Returns a True if so, false if it isn't
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.Connect(System.String)">
+            <summary>
+            Connect to an EZ-B.
+            Remote can be a PORT: Get the port name from GetAvailableCommunicationPorts()
+            Remote can be an IP Address, example: 192.168.1.5:23
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.Disconnect">
+            <summary>
+            Disconnect from the EZ-B
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.GetRandomNumber(System.Int32,System.Int32)">
+            <summary>
+            Return a random number within specified range.
+            Using this random number generating function will provide a common seed.
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.GetRandomUniqueNumber(System.Int32,System.Int32)">
+            <summary>
+            Return a random number and tries to make the returned value unique from the last time this function was called.
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.GetUniqueIDBytes">
+            <summary>
+            Returns a byte array unique ID of the EZ-B v4
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZB.GetUniqueIDString">
+            <summary>
+            Returns a byte array unique ID of the EZ-B v4
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZB.OnConnectionChange">
+            <summary>
+            Event risen when there is a connection change
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZB.OnLog">
+            <summary>
+            Event risen when there is debug data
+            </summary>
+        </member>
+        <member name="P:EZ_B.EZB.GetLastErrorMsg">
+            <summary>
+            Get the last verbose error message.
+            Use if VerboseLogging is False to receive the last detailed error.
+            </summary>
+        </member>
+        <member name="P:EZ_B.EZB.IsConnected">
+            <summary>
+            Returns true if currently connected to an EZ-B
+            </summary>
+        </member>
+        <member name="P:EZ_B.EZB.VerboseLogging">
+            <summary>
+            Set to TRUE to enable verbose logging. Only use this if you are debugging. This will produce lots of data.
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZB.OnConnectionChangeHandler">
+            <summary>
+            Event risen when there is a connection change
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZB.OnLogHandler">
+            <summary>
+            Event risen when there is debug data
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Manager.SetLipoBatteryProtection(System.Boolean,System.Decimal)">
+            <summary>
+            Disable or Enable the battery monitor for the EZ-B v4. If the battery monitor is disabled, the EZ-B will continue to operate I/O if the voltage is low.
+            You can also adjust the lowest voltage value to one decimal place.
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Manager.SetLipoBatteryLowestVoltage(System.Decimal)">
+            <summary>
+            Sets the lowest voltage that the EZ-B will operate with for the battery monitor. This is useful to Lipo batteries. 
+            This feature is enabled by default on the EZ-B v4.
+            </summary>
+            <param name="lowestVoltage"></param>
+        </member>
+        <member name="M:EZ_B.EZBv4Manager.SetLipoBatteryProtectionState(System.Boolean)">
+            <summary>
+            Disable or Enable the battery monitor for the EZ-B v4. If the battery monitor is disabled, the EZ-B will continue to operate I/O if the voltage is low.
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Manager.GetCPUTemperature">
+            <summary>
+            Returns the cpu core temperature in degrees celcuis
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EZ_B.EZBv4Manager.GetBatteryVoltage">
+            <summary>
+            Returns the battery voltage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:EZ_B.EZBv4Sound.RECOMMENDED_PACKET_SIZE">
+            <summary>
+            The recommended size of the the audio packets
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZBv4Sound.RECOMMENDED_PREBUFFER_SIZE">
+            <summary>
+            The recommended size of the prebuffer before playing the audio
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZBv4Sound.AUDIO_SAMPLE_BITRATE">
+            <summary>
+            The sample rate at which the data is played back on the EZ-B
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZBv4Sound.PACKET_SIZE">
+            <summary>
+            The size of each packet which is transmitted over the wire to the EZ-B.
+            </summary>
+        </member>
+        <member name="F:EZ_B.EZBv4Sound.PREBUFFER_SIZE">
+            <summary>
+            The ammount of data to prebuffer to the EZ-B before playing the audio. The EZ-B has a 50k buffer, so this value cannot be any higher than that.
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayDataWait(System.Byte[])">
+            <summary>
+            Play the Audio Data out of the EZ-B. 
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.Byte[])">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.Byte[],System.Decimal)">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.Byte[],System.Decimal,System.Int32[])">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayDataWait(System.Byte[],System.Decimal)">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.IO.Stream)">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            *Note: You must dispose of the memory stream yourself after calling this
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.IO.Stream,System.Int32[])">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            *Note: You must dispose of the memory stream yourself after calling this
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.IO.Stream,System.Int32[],System.Int32)">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            *Note: You must dispose of the memory stream yourself after calling this
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayDataWait(System.IO.Stream)">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            *Note: You must dispose of the memory stream yourself after calling this
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.IO.Stream,System.Decimal)">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            *Note: You must dispose of the memory stream yourself after calling this
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.IO.Stream,System.Decimal,System.Int32[])">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            *Note: You must dispose of the memory stream yourself after calling this
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayData(System.IO.Stream,System.Byte[],System.Decimal,System.Int32[],System.Int32)">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            *Note: You must dispose of the memory stream yourself after calling this
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.PlayDataWait(System.IO.Stream,System.Byte[],System.Decimal,System.Int32[],System.Int32)">
+            <summary>
+            Stream raw audio data to the EZ-B v4's speakers.
+            0 is silent, 100 is normal, 200 is 2x gain, 300 is 3x gain, etc.
+            The audio must be RAW 8 Bit at 18 KHZ Sample Rate
+            *Note: You must dispose of the memory stream yourself after calling this
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.Stop">
+            <summary>
+            Stop the audio which is being played
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Sound.DisposeOverride">
+            <summary>
+            Dispose of the AutoPositioner
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZBv4Sound.OnAudioDataHandler">
+            <summary>
+            Event exceuted when new data is being sent to the EZ-B
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZBv4Sound.OnVolumeChangedHandler">
+            <summary>
+            Event executed when the volume value has changed
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZBv4Sound.OnStopPlayingHandler">
+            <summary>
+            Event executed when the audio has stopped playing
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZBv4Sound.OnStartPlayingHandler">
+            <summary>
+            Event executed when the audio has begun playing
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZBv4Sound.OnClippingStatusHandler">
+            <summary>
+            Event executed when the audio level is clipping. This means the volume value is amplifying the audio past the limits
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZBv4Sound.OnProgressHandler">
+            <summary>
+            Event executed with the playing progress by sample position. The resolution of this event can be specified with Play method.
+            In summary, you set the Play Positions by the sample index and this event will execute when the playing reaches that particular sample point.
+            If you simply want an update of the curernt play time, use the OnPlayTime event.
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZBv4Sound.OnPlayTimeHandler">
+            <summary>
+            Event executed with the playing progress by sample position with 1000ms resolution.
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Video.Start(EZ_B.EZB,System.String,System.Int32)">
+            <summary>
+            Connect and begin receiving the camera stream
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Video.DisposeOverride">
+            <summary>
+            Dispose of this object
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZBv4Video.Stop">
+            <summary>
+            Stop the camera from streaming and receiving frames
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZBv4Video.OnStart">
+            <summary>
+            Event raised when the JPEGStream has started
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZBv4Video.OnStop">
+            <summary>
+            Event raised when the JPEGStream has stopped
+            </summary>
+        </member>
+        <member name="P:EZ_B.EZBv4Video.GetImageSize">
+            <summary>
+            Returns the size of the last camera image
+            </summary>
+        </member>
+        <member name="P:EZ_B.EZBv4Video.IsRunning">
+            <summary>
+            Returns the status of the camera streaming
+            </summary>
+        </member>
+        <member name="T:EZ_B.EZTaskScheduler">
+            <summary>
+            This scheduler ensures tasks are executed on a background threads with queuing. Tasks are added to the queue and when completed, the next task runs.
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZTaskScheduler.AddToQueue(System.Object)">
+            <summary>
+            Add task to the queue.
+            *Note: This does not start the task scheduler if it's not already running.
+                   You can use this to "prep" tasks to be executed.
+                   If you want to add more items to the queue AND run them, use the StartNew()
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZTaskScheduler.ProcessItemsInQueue">
+            <summary>
+            This will execute the scheduler to begin processing the items in the queue if the scheduler is not already running
+            *Note: This is only needed to be called if you prepped the queue with AddToQueue() when the scheduler wasn't already running
+                   Remember, the scheduler runs when the StartNew() is used. 
+            </summary>
+        </member>
+        <member name="M:EZ_B.EZTaskScheduler.StartNew(System.Object)">
+            <summary>
+            Add items to the queue and start the scheduler to begin processing them
+            *Note: This is the method that you should always be using unless you wish to prep items ahead of time, then use AddtoQueue() and ProcesItemsToQueue(), respectively.
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZTaskScheduler.OnEventError">
+            <summary>
+            Raised if the event throws an exeception on the same thread as the event was executed.
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZTaskScheduler.OnEventCompleted">
+            <summary>
+            Raised when the event has completed on the same thread as the event executed.
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZTaskScheduler.OnEventStart">
+            <summary>
+            Raised before the event is started on the same thread as the event will execute.
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZTaskScheduler.OnEventToRun">
+            <summary>
+            The event/task that will run for every instance.
+            </summary>
+        </member>
+        <member name="E:EZ_B.EZTaskScheduler.OnQueueCompleted">
+            <summary>
+            Raised when all events/tasks in the queue have completed executing. Executes on the same thread that the last task ran on.
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.DisplayBitSequence(System.Int32)">
+            <summary>
+            Displays the bit sequence of an integer value.
+            </summary>
+            <param name="value">The integer value.</param>
+            <returns>A string with the bit pattern representing the integer.</returns>
+            <example>The integer value '751' would result in '00000000000000000000001011101111', can be verified with calculator.</example>
+            <remarks>This is a method used frequently during testing.</remarks>
+        </member>
+        <member name="M:EZ_B.Functions.SetBitValue(System.Int32,System.Int32)">
+            <summary>
+            Sets the bit in an integer value at the requested position.
+            </summary>
+            <param name="value">The integer value.</param>
+            <param name="position">The position at which to set the bit.</param>
+            <returns>The integer value with the bit set.</returns>
+        </member>
+        <member name="M:EZ_B.Functions.ClearBitValue(System.Int32,System.Int32)">
+            <summary>
+            Clears the bit in an integer value at the requested position.
+            </summary>
+            <param name="value">The integer value.</param>
+            <param name="position">The position at which to clear the bit.</param>
+            <returns>The integer value with the bit cleared.</returns>
+        </member>
+        <member name="M:EZ_B.Functions.FlipBitValue(System.Int32,System.Int32)">
+            <summary>
+            Flips the bit in an integer value at the requested position.
+            </summary>
+            <param name="value">The integer value.</param>
+            <param name="position">The position at which to flip the bit.</param>
+            <returns>The integer value with the bit flipped.</returns>
+        </member>
+        <member name="M:EZ_B.Functions.ConvertStringToByteArray(System.String)">
+            <summary>
+            Converts the string to a byte array containing the ASCII values of each char.
+            </summary>
+            <param name="ssid">The ssid.</param>
+            <returns></returns>
+        </member>
+        <member name="M:EZ_B.Functions.ConvertByteArrayToString(System.Byte[])">
+            <summary>
+            Converts the byte array to a string.
+            </summary>
+            <param name="buffer">The byte sequence.</param>
+            <returns>A string representing the byte array.</returns>
+        </member>
+        <member name="M:EZ_B.Functions.ConvertByteArrayToString(System.Byte[],System.Int32)">
+            <summary>
+            Converts the byte array to a string.
+            </summary>
+            <param name="buffer">The byte sequence.</param>
+            <param name="length">The byte count to use for conversion.</param>
+            <returns>A string representing the byte array.</returns>
+        </member>
+        <member name="M:EZ_B.Functions.ConvertToDecimal(System.Object)">
+            <summary>
+            Convert ascii object to a decimal value
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.Chunk``1(``0[],System.Int32)">
+            <summary>
+            Returns an IEnumerable of input list split into the number of specified parts
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.IsByte(System.Object)">
+            <summary>
+            Returns true if the InObj is a byte value 
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.IsNumeric(System.Object)">
+            <summary>
+            Returns true if the InObj is a numerical value (including int and floating point)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.IsLargerThan(System.Int32,System.Int32[])">
+            <summary>
+            Returns true if the mainValue is larger than all other values
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.IsEqualToo(System.Int32,System.Int32[])">
+            <summary>
+            Returns true if the mainValue is equal to any other values
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.Contains(System.Boolean,System.Object,System.String[])">
+            <summary>
+            Extension of the String.Contains but allows an array of items to check for rather than just one.
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.Diff(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns true if the difference between Master and Compare is greater then Diff
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.Diff(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Returns true if the difference between Master and Compare is greater then Diff
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.IsBitSet(System.Int32,System.Int32)">
+            <summary>
+            Returns true if the specified bit in the byte is 1. false if not. 0 is LSB, 7 is MSB
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.ByteToBinaryString(System.Byte)">
+            <summary>
+            Converts a byte to a binary string
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.ByteToBinaryString(System.Byte,System.String)">
+            <summary>
+            Converts a byte to a binary string
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.ToByteFromBinary(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Returns a byte from specified binary. LSB is val0. MSB is val7
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.ToByteFromBinary(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns a byte out of the binary. The inputs for each bit an either be a 0 or a 1. The LSB is val0. MSB is val7
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.GetScalarFromRange(System.Int32,System.Single,System.Single)">
+            <summary>
+            Returns a scalar. Used for converting one range into another range. (i.e. Wii Input Remote X/Y/Z to Servo Positions)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.GetScalarFromRange(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns a scalar. Used for converting one range into another range. (i.e. Wii Input Remote X/Y/Z to Servo Positions)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.GetScalarFromRange(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Returns a scalar. Used for converting one range into another range. (i.e. Wii Input Remote X/Y/Z to Servo Positions)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.SingleToInt32Bits(System.Single)">
+            <summary>
+            Converts a Float to an IEEE754 Compliant Integer
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.GetShortestAngle(System.Int32,System.Int32)">
+            <summary>
+            Returns the shortest angle between two angles (Absolute, no negatives)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.GetAngle(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get the angle of the second point relative to the first point
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.GetAngle(System.Decimal,System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Get the angle of the second point relative to the first point
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.GetAngle(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Get the angle of the second point relative to the first point
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.GetDistance(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns the distance between two points on a 2d vector
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.StripHTML(System.String)">
+            <summary>
+            Remove all html tags
+            </summary>
+            <param name="inStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EZ_B.Functions.CopyTo(System.Object,System.Object)">
+            <summary>
+            Copy object to object
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.ClampDouble(System.Double,System.Double,System.Double)">
+            <summary>
+            Clamp a value
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.Clamp(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Clamp a value to range
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.Clamp(System.Int32)">
+            <summary>
+            Clamp a value to 0-255
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.DegX(System.Double,System.Double)">
+            <summary>
+             Returns the degree X co-ordinate for a circle
+             i.e. Plot(DegX(10, 20), DegY(10, 20));
+            </summary>
+        </member>
+        <member name="M:EZ_B.Functions.DegY(System.Double,System.Double)">
+            <summary>
+             Returns the degree Y co-ordinate for a circle
+             i.e. Plot(DegX(10, 20), DegY(10, 20));
+            </summary>
+        </member>
+        <member name="F:EZ_B.HC_SR04.MinPoolTimeMS">
+            <summary>
+            To prevent ADC requests from flooding the communication channel, this limit prevents too many calls. Best to leave it alone.
+            </summary>
+        </member>
+        <member name="M:EZ_B.HC_SR04.GetValue(EZ_B.Digital.DigitalPortEnum,EZ_B.Digital.DigitalPortEnum)">
+            <summary>
+             Get the value received from the HC-SR04 Ping Sensor
+            </summary>
+        </member>
+        <member name="F:EZ_B.HT16K33.I2C_ADDRESS">
+            <summary>
+            Default I2C Address of the HT16K33 Module (0x70)
+            </summary>
+        </member>
+        <member name="F:EZ_B.HT16K33.BRIGHTNESS_MAX">
+            <summary>
+            The maximum brightness that can be sent to the LED (15)
+            </summary>
+        </member>
+        <member name="F:EZ_B.HT16K33.BRIGHTNESS_MIN">
+            <summary>
+            The minimium brightness that can be sent to the LED (0)
+            </summary>
+        </member>
+        <member name="M:EZ_B.HT16K33.Init">
+            <summary>
+            Initialize the HT16K33 by enabling the oscillator and setting the brightness to 15
+            </summary>
+        </member>
+        <member name="M:EZ_B.HT16K33.SetAllStatus(System.Boolean)">
+            <summary>
+            Sets all of the LED's to the specific color.
+            </summary>
+        </member>
+        <member name="M:EZ_B.HT16K33.SetLED(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Set the LED status in the array
+            *Note: This will not actually change the physical LED. You must call Update() to update the array
+            </summary>
+        </member>
+        <member name="M:EZ_B.HT16K33.GetLED(System.Int32,System.Int32)">
+            <summary>
+            Return the status of the LED in the array
+            </summary>
+        </member>
+        <member name="M:EZ_B.HT16K33.UpdateLEDs(System.Boolean[0:,0:])">
+            <summary>
+            Update the LEDs with the current matrix. Also sets the current matrix to this value
+            </summary>
+            <param name="matrix"></param>
+        </member>
+        <member name="M:EZ_B.HT16K33.UpdateLEDs">
+            <summary>
+            Update the LEDs with the current matrix
+            </summary>
+        </member>
+        <member name="P:EZ_B.HT16K33.Matrix">
+            <summary>
+            Set or Get the matrix data (8x8 array)
+            </summary>
+        </member>
+        <member name="F:EZ_B.HT16K33Animator.Name">
+            <summary>
+            Unique name for this auto position instance
+            </summary>
+        </member>
+        <member name="M:EZ_B.HT16K33Animator.#ctor(EZ_B.EZB,System.String)">
+            <summary>
+            Create an instance of the AutoPosition Control
+            </summary>
+        </member>
+        <member name="M:EZ_B.HT16K33Animator.DisposeOverride">
+            <summary>
+            Dispose of the AutoPositioner
+            </summary>    
+        </member>
+        <member name="M:EZ_B.HT16K33Animator.Stop">
+            <summary>
+            Stops the current movement. Blocks until stop is successful.
+            </summary>
+        </member>
+        <member name="M:EZ_B.HT16K33Animator.ExecAction(EZ_B.Classes.HT16K33AnimatorAction)">
+            <summary>
+            Execute the Action
+            </summary>
+        </member>
+        <member name="E:EZ_B.HT16K33Animator.OnComplete">
+            <summary>
+            Event risen when movement is complete
+            </summary>
+        </member>
+        <member name="E:EZ_B.HT16K33Animator.OnStartAction">
+            <summary>
+            Event risen when an action is started
+            </summary>
+        </member>
+        <member name="M:EZ_B.I2C.WriteBinary(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Write binary to the specified 7 bit address.
+            Example: WriteBinary(0x1D, 0, 0, 1, 1, 1, 0, 1, 0);
+            </summary>
+        </member>
+        <member name="M:EZ_B.I2C.Write(System.Byte,System.Byte[])">
+            <summary>
+            Write data to the specified device 7 bit address.
+            Example: Write(0x1D, new byte [] { 127, 64 } );
+            </summary>
+        </member>
+        <member name="M:EZ_B.I2C.Read(System.Byte,System.Byte)">
+            <summary>
+            Read data from the specified i2c device address. 
+            Example: byte [] ret = Read(Auto, 0x1D, 1);
+            </summary>
+        </member>
+        <member name="M:EZ_B.I2C.SetClockSpeed(System.UInt32)">
+            <summary>
+            Set the clock speed of the i2c interface
+            </summary>
+        </member>
+        <member name="F:EZ_B.MIP.UART_PORT">
+            <summary>
+            Set the UART Peripheral Port
+            </summary>
+        </member>
+        <member name="F:EZ_B.MIP.BAUD_RATE">
+            <summary>
+            The baud rate of the MIP communication
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.Init(System.Int32)">
+            <summary>
+            Initialize the MIP Robot over the specified UART Port Index
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.Forward(System.Byte)">
+            <summary>
+            Move the MIP forward. The speed is a value between 1 and 31
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.Reverse(System.Byte)">
+            <summary>
+            Move the MIP reverse. The speed is a value between 1 and 31
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.Right(System.Byte)">
+            <summary>
+            Move the MIP right. The speed is a value between 1 and 31
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.Left(System.Byte)">
+            <summary>
+            Move the MIP left. The speed is a value between 1 and 31
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.Stop">
+            <summary>
+            Stop the MIP
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.PlaySound(System.Byte)">
+            <summary>
+            Play the sound file between 1 and 106
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.AdjustVolume(System.Byte)">
+            <summary>
+            Adjust the audio volume of the MIP between 0 and 6
+            </summary>
+            <param name="volume"></param>
+        </member>
+        <member name="M:EZ_B.MIP.SetChestLED(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set the color of the MIP chest LED. Colors can be between 0-255, and fadeInTime is 10ms intervals between 0-255
+            </summary>
+        </member>
+        <member name="M:EZ_B.MIP.FlashChestLED(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Flash color of the MIP chest LED. Colors can be between 0-255, and timeOn and timeOff is 20ms intervals between 0-255
+            </summary>
+        </member>
+        <member name="M:EZ_B.MMA7455.WhoAmI">
+            <summary>
+            Return the firmware of the device
+            </summary>
+        </member>
+        <member name="M:EZ_B.MMA7455.Init(EZ_B.MMA7455.SensitivityEnum)">
+            <summary>
+            Send initialization
+            </summary>
+        </member>
+        <member name="M:EZ_B.MMA7455.GetMode">
+            <summary>
+            Return the current configuration
+            </summary>
+        </member>
+        <member name="M:EZ_B.MMA7455.GetX">
+            <summary>
+            Get X
+            </summary>
+        </member>
+        <member name="M:EZ_B.MMA7455.GetY">
+            <summary>
+            Get Y
+            </summary>
+        </member>
+        <member name="M:EZ_B.MMA7455.GetZ">
+            <summary>
+            Get Z
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ServoWheelLeftModifiedPort">
+            <summary>
+            Servo port for modified servo that acts as the left wheel (if set for Servo Type)
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ServoWheelRightModifiedPort">
+            <summary>
+            Servo port for modified servo that acts as the right wheel (if set for Servo Type)
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.HBridgeLeftWheelTriggerA">
+            <summary>
+            The left wheel trigger A port of the H Bridge
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.HBridgeLeftWheelTriggerB">
+            <summary>
+            The left wheel trigger B port of the H Bridge
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.HBridgeRightWheelTriggerA">
+            <summary>
+            The right wheel trigger A port of the H Bridge
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.HBridgeRightWheelTriggerB">
+            <summary>
+            The right wheel trigger B port of the H Bridge
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.HBridgeRightWheelPWM">
+            <summary>
+            The right wheel PWM
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.HBridgeLeftWheelPWM">
+            <summary>
+            The lefgt wheel PWM
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ModifiedServoLeftForwardValue">
+            <summary>
+            Servos and R/C servo controllers have specified values for their speed control.
+            Use this value to set it.
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ModifiedServoLeftReverseValue">
+            <summary>
+            Servos and R/C servo controllers have specified values for their speed control.
+            Use this value to set it.
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ModifiedServoRightForwardValue">
+            <summary>
+            Servos and R/C servo controllers have specified values for their speed control.
+            Use this value to set it.
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ModifiedServoRightReverseValue">
+            <summary>
+            Servos and R/C servo controllers have specified values for their speed control.
+            Use this value to set it.
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ModifiedServoUseStopValue">
+            <summary>
+            For ESC - Some ESC Require a STOP value (neutral position) to be set.
+            This does not need to be set for Modified Servos.
+            Normally, if this is FALSE the EZ-B will simply stop sending a PWM signal. If this is set to True, the signal will send the specified Stop right and left values.
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ModifiedServoRightStopValue">
+            <summary>
+            Specifieds the Stop Position for the ESC. Will not be used unless the ModifiedServoUseStopValue is set
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.ModifiedServoLeftStopValue">
+            <summary>
+            Specifieds the Stop Position for the ESC. Will not be used unless the ModifiedServoUseStopValue is set
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.DroneForwardReverseRate">
+            <summary>
+            Specifies the rate for moving a drone forward and reverse
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.DroneYawLeftRightRate">
+            <summary>
+            Specifies the rate for turning a drone
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.DroneUpDownRate">
+            <summary>
+            Specifies the rate for raising and lowering a drone
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.DroneRollLeftRightRate">
+            <summary>
+            Specifies the rate for rolling left or right
+            </summary>
+        </member>
+        <member name="F:EZ_B.Movement.MIPUartPort">
+            <summary>
+            WowWee MIP UART Interface Port. By default, it uses the default UART 0 peripheral interface
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GetSpeed">
+            <summary>
+            Get the global speed
+            </summary>
+            <param name="speed"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EZ_B.Movement.GetSpeedLeft">
+            <summary>
+            Get the global speed for Left wheel
+            </summary>
+            <param name="speed"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EZ_B.Movement.GetSpeedRight">
+            <summary>
+            Get the global speed for Right wheel
+            </summary>
+            <param name="speed"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EZ_B.Movement.SetSpeed(System.Byte)">
+            <summary>
+            Set the global speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.SetSpeed(System.Byte,System.Byte)">
+            <summary>
+            Set the global speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.SetSpeedLeft(System.Byte)">
+            <summary>
+            Set the left speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.SetSpeedRight(System.Byte)">
+            <summary>
+            Set the right speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoStop">
+            <summary>
+            Stops the robot if moving
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoForward(System.Byte)">
+            <summary>
+            Moves robot forward at specified speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoForward(System.Byte,System.Byte)">
+            <summary>
+            Moves robot forward at specified speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoForward">
+            <summary>
+            Moves robot forward
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoReverse(System.Byte)">
+            <summary>
+            Moves robot backward at specified speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoReverse(System.Byte,System.Byte)">
+            <summary>
+            Moves robot backward at specified speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoReverse">
+            <summary>
+            Moves robot backward
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoLeft(System.Byte)">
+            <summary>
+            Turns robot left at specified speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoLeft(System.Byte,System.Byte)">
+            <summary>
+            Turns robot left at specified speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoLeft">
+            <summary>
+            Turns robot left
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoRight(System.Byte)">
+            <summary>
+            Turns robot right at specified speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoRight(System.Byte,System.Byte)">
+            <summary>
+            Turns robot right at specified speed
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoRight">
+            <summary>
+            Turns robot right
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoUp">
+            <summary>
+            Robot Goes Up (Drone flying robots)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoDown">
+            <summary>
+            Robot Goes Down (Drone flying robots)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoRollRight">
+            <summary>
+            Robot Rolls Right (Drone flying robots)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Movement.GoRollLeft">
+            <summary>
+            Robot Rolls Left (Drone flying robots)
+            </summary>
+        </member>
+        <member name="E:EZ_B.Movement.OnMovement">
+            <summary>
+            Event risen when for movement action
+            </summary>
+        </member>
+        <member name="E:EZ_B.Movement.OnSpeedChanged">
+            <summary>
+            Event risen when for speed changed
+            </summary>
+        </member>
+        <member name="P:EZ_B.Movement.MovementType">
+            <summary>
+            Set the type of movement type this control will use (Servo or HBridge?)
+            </summary>
+        </member>
+        <member name="P:EZ_B.Movement.GetCurrentDirection">
+            <summary>
+            Get the current direction
+            </summary>
+        </member>
+        <member name="F:EZ_B.MP3Trigger.CommunicationPort">
+            <summary>
+            Specify the communication port that the MP3 Trigger is connected with
+            </summary>
+        </member>
+        <member name="F:EZ_B.MP3Trigger.BaudRate">
+            <summary>
+            Specify the baud rate that the MP3 Trigger is connected with.
+            Default is 38400
+            </summary>
+        </member>
+        <member name="M:EZ_B.MP3Trigger.Reverse">
+            <summary>
+            Play previous track
+            </summary>
+        </member>
+        <member name="M:EZ_B.MP3Trigger.Forward">
+            <summary>
+            Play next track
+            </summary>
+        </member>
+        <member name="M:EZ_B.MP3Trigger.SetVolume(System.Byte)">
+            <summary>
+            Specify volume.
+            0 - Loud. 
+            255 - Quiet.
+            </summary>
+        </member>
+        <member name="M:EZ_B.MP3Trigger.StartStop">
+            <summary>
+            Start/Stop
+            </summary>
+        </member>
+        <member name="M:EZ_B.MP3Trigger.PlayTrack(System.Byte)">
+            <summary>
+            Play specified track number
+            </summary>
+            <param name="trackNumber"></param>
+        </member>
+        <member name="F:EZ_B.MusicSynth.random">
+            <summary>
+            Random provider for noise generator
+            </summary>
+        </member>
+        <member name="M:EZ_B.MusicSynth.DisposeOverride">
+            <summary>
+            Dispose of the AutoPositioner
+            </summary>
+        </member>
+        <member name="P:EZ_B.MusicSynth.SignalType">
+            <summary>
+            Signal Type.
+            </summary>
+        </member>
+        <member name="P:EZ_B.MusicSynth.Phase">
+            <summary>
+            Signal Phase.
+            </summary>
+        </member>
+        <member name="P:EZ_B.MusicSynth.Invert">
+            <summary>
+            Signal Inverted?
+            </summary>
+        </member>
+        <member name="F:EZ_B.PWM.PWM_MAX">
+            <summary>
+             The maximum value for a PWM (100)
+            </summary>
+        </member>
+        <member name="F:EZ_B.PWM.PWM_MIN">
+            <summary>
+             The minimum value of a PWM (0)
+            </summary>
+        </member>
+        <member name="M:EZ_B.PWM.SetPWM(EZ_B.Digital.DigitalPortEnum,System.Int32)">
+            <summary>
+            Set the PWM Duty Cycle. The speed can be between PWM_MIN and PWM_MAX
+            </summary>
+        </member>
+        <member name="M:EZ_B.PWM.GetPWM(EZ_B.Digital.DigitalPortEnum)">
+            <summary>
+            Get the PWM
+            </summary>
+        </member>
+        <member name="M:EZ_B.PWM.StopPWM(EZ_B.Digital.DigitalPortEnum)">
+            <summary>
+            Stop PWM.
+            </summary>
+        </member>
+        <member name="M:EZ_B.PWM.IsPWMStopped(EZ_B.Digital.DigitalPortEnum)">
+            <summary>
+            Return true if the specified pwm port is in a stopped state
+            </summary>
+        </member>
+        <member name="M:EZ_B.RandomUnique.#ctor">
+            <summary>
+            Create an instance of the RandomUnique Class which attempts to provide a unique random number and other random functions
+            </summary>
+        </member>
+        <member name="M:EZ_B.RandomUnique.GetRandomNumber(System.Int32,System.Int32)">
+            <summary>
+            Return a random number within specified range.
+            Using this random number generating function will provide a common seed.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RandomUnique.GetRandomUniqueNumber(System.Int32,System.Int32)">
+            <summary>
+            Return a random number and tries to make the returned value unique from the last time this function was called.
+            </summary>
+        </member>
+        <member name="F:EZ_B.RGB8x8.I2C_ADDRESS">
+            <summary>
+            Default I2C Address of the RGB 8x8 Module (0xa2)
+            </summary>
+        </member>
+        <member name="F:EZ_B.RGB8x8.INDEX_MAX">
+            <summary>
+            The number of RGB LEDs is referenced by the index
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:EZ_B.RGB8x8.ChangeI2CAddress(System.Byte,System.Byte)" -->
+        <!-- Badly formed XML comment ignored for member "M:EZ_B.RGB8x8.ClearDisplay" -->
+        <!-- Badly formed XML comment ignored for member "M:EZ_B.RGB8x8.ClearDisplay(System.Byte)" -->
+        <!-- Badly formed XML comment ignored for member "M:EZ_B.RGB8x8.ClearDisplay(System.Boolean,System.Boolean,System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:EZ_B.RGB8x8.ClearDisplay(System.Byte,System.Boolean,System.Boolean,System.Boolean)" -->
+        <member name="M:EZ_B.RGB8x8.SetAllColor(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets all of the LED's to the specific color.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.SetAllColor(System.Boolean,System.Boolean,System.Boolean,System.Byte)">
+            <summary>
+            Sets all of the LED's to the specific color.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.SetColor(System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the color of the specified index.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.SetColor(System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Byte)">
+            <summary>
+            Sets the color of the specified index.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.SetColor(System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the color of the specified index.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.SetColor(System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Byte)">
+            <summary>
+            Sets the color of the specified index.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.SetColors(EZ_B.RGB8x8.RGBDef[])">
+            <summary>
+            Sets the LED's to the specific color.
+            The RGBDef must be 64 items or less. 
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.SetColors(EZ_B.RGB8x8.RGBDef[],System.Byte)">
+            <summary>
+            Sets the LED's to the specific color.
+            The RGBDef must be 64 items or less. 
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.CanvasRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Draw a rectangle on the display
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.CanvasLine(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Draw a line on the display
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.CanvasClear">
+            <summary>
+            Clear the canvas
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.CanvasClear(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Clear the canvas with the specified color
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.CanvasUpdate">
+            <summary>
+            Send the current canvas to the display
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.CanvasUpdate(System.Byte)">
+            <summary>
+            Send the current canvas to the display
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.CanvasSetPixel(System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Set the pixel color on the canvas
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.CanvasSetPixel(System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Byte)">
+            <summary>
+            Set the pixel color on the canvas
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8.SetColors(EZ_B.RGB8x8.CanvasColorStruct[0:,0:],System.Byte)">
+            <summary>
+            Sets the LED's to the specific color.
+            The RGBDef must be 64 items or less. 
+            </summary>
+        </member>
+        <member name="P:EZ_B.RGB8x8.SetEZB">
+            <summary>
+            Set the EZ-B being used by these RGB 8x8
+            </summary>
+        </member>
+        <member name="F:EZ_B.RGB8x8Animator.Name">
+            <summary>
+            Unique name for this auto position instance
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8Animator.#ctor(EZ_B.EZB,System.String)">
+            <summary>
+            Create an instance of the AutoPosition Control
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8Animator.DisposeOverride">
+            <summary>
+            Dispose of the AutoPositioner
+            </summary>    
+        </member>
+        <member name="M:EZ_B.RGB8x8Animator.Stop">
+            <summary>
+            Stops the current movement. Blocks until stop is successful.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGB8x8Animator.ExecAction(EZ_B.Classes.RGB8x8AnimatorAction)">
+            <summary>
+            Execute the Action
+            </summary>
+        </member>
+        <member name="E:EZ_B.RGB8x8Animator.OnComplete">
+            <summary>
+            Event risen when movement is complete
+            </summary>
+        </member>
+        <member name="E:EZ_B.RGB8x8Animator.OnStartAction">
+            <summary>
+            Event risen when an action is started
+            </summary>
+        </member>
+        <member name="P:EZ_B.RGB8x8Animator.RGB8x8">
+            <summary>
+            Get a reference to the current RGB8x8 underlying control class
+            </summary>
+        </member>
+        <member name="F:EZ_B.RGBAnimator.Name">
+            <summary>
+            Unique name for this auto position instance
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBAnimator.#ctor(EZ_B.EZB,System.String)">
+            <summary>
+            Create an instance of the AutoPosition Control
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBAnimator.DisposeOverride">
+            <summary>
+            Dispose of the AutoPositioner
+            </summary>    
+        </member>
+        <member name="M:EZ_B.RGBAnimator.Stop">
+            <summary>
+            Stops the current movement. Blocks until stop is successful.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBAnimator.ExecAction(EZ_B.Classes.RGBAnimatorAction)">
+            <summary>
+            Execute the Action
+            </summary>
+        </member>
+        <member name="E:EZ_B.RGBAnimator.OnComplete">
+            <summary>
+            Event risen when movement is complete
+            </summary>
+        </member>
+        <member name="E:EZ_B.RGBAnimator.OnStartAction">
+            <summary>
+            Event risen when an action is started
+            </summary>
+        </member>
+        <member name="P:EZ_B.RGBAnimator.SetEZB">
+            <summary>
+            Set the EZ-B being used by this RGB Animator
+            </summary>
+        </member>
+        <member name="F:EZ_B.RGBEyes.I2C_ADDRESS">
+            <summary>
+            Default I2C Address of the RGB Eyes Module (0xa0)
+            </summary>
+        </member>
+        <member name="F:EZ_B.RGBEyes.BRIGHTNESS_MAX">
+            <summary>
+            The maximum brightness that can be sent to the RGB LED (7)
+            </summary>
+        </member>
+        <member name="F:EZ_B.RGBEyes.BRIGHTNESS_MIN">
+            <summary>
+            The minimium brightness that can be sent to the RGB LED (0)
+            </summary>
+        </member>
+        <member name="F:EZ_B.RGBEyes.INDEX_MAX">
+            <summary>
+            The number of RGB LEDs is referenced by the index
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBEyes.ChangeI2CAddress(System.Byte)">
+            <summary>
+            Change the I2C address of the device. Will send the command to the default address.
+            </summary>
+            <param name="NewI2CAddress"></param>
+        </member>
+        <member name="M:EZ_B.RGBEyes.ChangeI2CAddress(System.Byte,System.Byte)">
+            <summary>
+            Change the I2C address of the device.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBEyes.SetAllColor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set all of the LED's to the specific color. Sends the command to the default I2C address
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBEyes.SetAllColor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets all of the LED's to the specific color.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBEyes.SetColor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set the color of the specified index. Sends the command to the default I2C address
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBEyes.SetColor(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets the color of the specified index.
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBEyes.SetColor(System.Byte[],System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets the color of the specified indexes within the array. Sends the command to the default I2C Addres
+            </summary>
+        </member>
+        <member name="M:EZ_B.RGBEyes.SetColor(System.Byte,System.Byte[],System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets the color of the specified indexes within the array.
+            </summary>
+        </member>
+        <member name="P:EZ_B.RGBEyes.SetEZB">
+            <summary>
+            Set the EZ-B being used by these RGB Eyes
+            </summary>
+        </member>
+        <member name="M:EZ_B.RoboQuad.SendCommand(EZ_B.RoboQuad.RoboQuadCmdEnum)">
+            <summary>
+            Send commands to control a WowWee RoboQuad
+            </summary>
+        </member>
+        <member name="T:EZ_B.RoboQuad.RoboQuadCmdEnum">
+            <summary>
+            List of RoboQuad Commands
+            </summary>
+        </member>
+        <member name="M:EZ_B.RoboSapien.SendCommand(EZ_B.RoboSapien.RoboSapienCmdEnum)">
+            <summary>
+            Send commands to control a WowWee RoboSapien
+            </summary>
+        </member>
+        <member name="T:EZ_B.RoboSapien.RoboSapienCmdEnum">
+            <summary>
+            List of RoboSapien Commands
+            </summary>
+        </member>
+        <member name="F:EZ_B.Roomba.CommunicationPort">
+            <summary>
+            The communication port for the Roomba
+            </summary>
+        </member>
+        <member name="F:EZ_B.Roomba.UseOldProtocol">
+            <summary>
+            Some of the older roombas conflict with the SCI datasheet by iRobot Roomba.
+            If your roomba is moving the wrong direction, set this.
+            </summary>
+        </member>
+        <member name="F:EZ_B.Roomba.RoombaBaudRate">
+            <summary>
+            The baud rate for your roomba.
+            Mostly 57600, except newer models are 115200
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.PowerOff">
+            <summary>
+            Power Off the Roomba
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.SpotClean">
+            <summary>
+            Enable Spot Clean
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.Clean">
+            <summary>
+            Enable Clean
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.DisableAllBrushes">
+            <summary>
+            Turn off all brushes (motors)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.SetMotorStates(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Control the motors
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.SetMainBrush(System.Boolean)">
+            <summary>
+            Set the state of the main brush motor
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.SetSideBrush(System.Boolean)">
+            <summary>
+            Set the state of the side brush motor
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.SetVacuum(System.Boolean)">
+            <summary>
+            Set the state of the vacuum motor
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.SeekDockingStation">
+            <summary>
+            Force seek docking station. Must be cleaning before you can seek dock station
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.PowerLED(System.Byte,System.Byte)">
+            <summary>
+            Change PowerLED color and intensity
+            The Color value is between Green and Red (1 and 255)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.Stop">
+            <summary>
+            Stop moving
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.Drive(System.Int16,System.Int16)">
+            <summary>
+            Move Roomba (velocity between -200 and 200) (angle between -2000 and 2000 or -1 and 1) (straight: 32768)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.Forward(System.Byte)">
+            <summary>
+            Move Roomba forward. Speed is between 0 and 200
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.Reverse(System.Byte)">
+            <summary>
+            Move Roomba Reverse. Speed is between 0 and 200
+            </summary>
+            <param name="speed"></param>
+        </member>
+        <member name="M:EZ_B.Roomba.Right(System.Byte)">
+            <summary>
+            Turn Roomba right
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.Left(System.Byte)">
+            <summary>
+            Turn Roomba left
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.Max">
+            <summary>
+            Enable Max Clean
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.PlayTone(EZ_B.RoombaSong.NoteEnum,System.Byte)">
+            <summary>
+            Play one note using the Roomba's speaker
+            </summary>
+        </member>
+        <member name="M:EZ_B.Roomba.PlaySong(EZ_B.RoombaSong[])">
+            <summary>
+            Play a song using the Roomba's speaker.
+            Roomba supports a maximum of 15 notes.
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.SpeedLeftWheelForward">
+            <summary>
+            Value of the Left Wheel when moving forward
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.SpeedRightWheelForward">
+            <summary>
+            Value of the Right Wheel when moving forward
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.SpeedLeftWheelTurnLeft">
+            <summary>
+            Value of the Left Wheel when turning Left
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.SpeedRightWheelTurnLeft">
+            <summary>
+            Value of the Right Wheel when turning Right
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.SpeedLeftWheelReverse">
+            <summary>
+            Value of the Left Wheel when moving reverse
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.SpeedRightWheelReverse">
+            <summary>
+            Value of the Right Wheel when moving reverse
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.SpeedLeftWheelTurnRight">
+            <summary>
+            Value of the Left Wheel when turning right
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.SpeedRightWheelTurnRight">
+            <summary>
+            Value of the Right Wheel when turning right
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.BaudRate">
+            <summary>
+            Baud rate for the communication
+            </summary>
+        </member>
+        <member name="F:EZ_B.SabertoothSerial.DigitalPort">
+            <summary>
+            Digital port used for communication to the controller
+            </summary>
+        </member>
+        <member name="M:EZ_B.SabertoothSerial.Stop">
+            <summary>
+             Stop
+            </summary>
+        </member>
+        <member name="M:EZ_B.SabertoothSerial.Forward">
+            <summary>
+             Move forward.
+            </summary>
+        </member>
+        <member name="M:EZ_B.SabertoothSerial.Reverse">
+            <summary> 
+             Move reverse.
+            </summary>
+        </member>
+        <member name="M:EZ_B.SabertoothSerial.Right">
+            <summary> 
+             Right.
+            </summary>
+        </member>
+        <member name="M:EZ_B.SabertoothSerial.Left">
+            <summary> 
+             Left.
+            </summary>
+        </member>
+        <member name="M:EZ_B.SerialRGBLED.SetColor(EZ_B.Digital.DigitalPortEnum,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set the brightness of each led component. The value is 0-15
+            </summary>
+        </member>
+        <member name="M:EZ_B.SerialRGBLED.SetColor(EZ_B.Digital.DigitalPortEnum,EZ_B.SerialRGBLED.ColorEnum,System.Byte)">
+            <summary>
+            Set the brightness of each led component. The value is 0-15
+            </summary>
+        </member>
+        <member name="F:EZ_B.Servo.SERVO_SPEED_FASTEST">
+            <summary>
+             The slowest speed for a servo (0)
+            </summary>
+        </member>
+        <member name="F:EZ_B.Servo.SERVO_SPEED_SLOWEST">
+            <summary>
+            The slowest speed for a servo (20)
+            </summary>
+        </member>
+        <member name="F:EZ_B.Servo.SERVO_MAX">
+            <summary>
+             The maximum value for a servo (100)
+            </summary>
+        </member>
+        <member name="F:EZ_B.Servo.SERVO_CENTER">
+            <summary>
+             The ideal center value of a servo (50 for EZ-B v3 and 90 for EZ-B v4)
+            </summary>
+        </member>
+        <member name="F:EZ_B.Servo.SERVO_MIN">
+            <summary>
+             The minimum value of a servo (1)
+            </summary>
+        </member>
+        <member name="F:EZ_B.Servo.SERVO_OFF">
+            <summary>
+             The value of a servo to disable
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.ResetServoFineTune">
+            <summary>
+             Reset the fine tuning values to 0 for each servo
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.GetServoFineTune(EZ_B.Servo.ServoPortEnum)">
+            <summary>
+            Return the fine tunign value of the specified servo
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.SetServoFineTune(EZ_B.Servo.ServoPortEnum,System.Int32)">
+            <summary>
+            Set the fine tuning value for the specified servo. This means that if the fine tune value for a servo is set to 1, then every position that is specified will be incremented by 1.
+            This allows you to fine tune a servo position across the entire application.
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.ResetServoMinLimits">
+            <summary>
+             Reset the servo min value
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.GetServoMin(EZ_B.Servo.ServoPortEnum)">
+            <summary>
+            Return the min value that this servo will ever move 
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.SetServoMin(EZ_B.Servo.ServoPortEnum,System.Int32)">
+            <summary>
+            Set the mininum servo value that this servo will ever be able to go
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.ResetServoMaxLimits">
+            <summary>
+             Reset the servo max value
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.GetServoMax(EZ_B.Servo.ServoPortEnum)">
+            <summary>
+            Return the max value that this servo will ever move 
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.SetServoMax(EZ_B.Servo.ServoPortEnum,System.Int32)">
+            <summary>
+            Set the mininum servo value that this servo will ever be able to go
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.SetServoPosition(EZ_B.Servo.ServoPortEnum,System.Int32,System.Int32)">
+            <summary>
+            Set the speed and position of a servo
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.SetServoPosition(EZ_B.Servo.ServoPortEnum,System.Int32)">
+            <summary>
+            Set the position of a servo
+            Uses the last speed specified
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.SetServoPosition(EZ_B.Classes.ServoPositionItem[])">
+            <summary>
+            Set the position of a servo
+            Uses the last speed specified
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.SetServoSpeed(EZ_B.Servo.ServoPortEnum,System.Int32)">
+            <summary>
+            Set the speed of a servo
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.SetServoSpeed(EZ_B.Servo.ServoPortEnum[],System.Int32)">
+            <summary>
+            Set the speed of multiple servos
+            </summary>
+            <param name="servoPort"></param>
+            <param name="speed"></param>
+        </member>
+        <member name="M:EZ_B.Servo.GetServoSpeed(EZ_B.Servo.ServoPortEnum)">
+            <summary>
+            Return the current speed of a servo
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.GetServoPosition(EZ_B.Servo.ServoPortEnum)">
+            <summary>
+            Get the position of a servo
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.ReleaseServo(EZ_B.Servo.ServoPortEnum)">
+            <summary>
+            Release servo. Release a servo from holding its position.
+            If modified, stops the servo.
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.ReleaseAllServos">
+            <summary>
+             When servos have been used, they will hold their position until the EZ-B power is cycled or until they are told to release.
+             This will send a command to the EZ-B to release all servos
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.ResetAllServoSpeeds">
+            <summary>
+            Reset all the servo speeds to their default of 0 (fastest)
+            </summary>
+        </member>
+        <member name="M:EZ_B.Servo.IsServoReleased(EZ_B.Servo.ServoPortEnum)">
+            <summary>
+            Return true if the specified servo port is in a released state
+            </summary>
+        </member>
+        <member name="E:EZ_B.Servo.OnServoMove">
+            <summary>
+            Event that is raised when a servo is moved
+            </summary>
+        </member>
+        <member name="E:EZ_B.Servo.OnServoSpeed">
+            <summary>
+            Event that is raised when a servo speed setting is changed
+            </summary>
+        </member>
+        <member name="E:EZ_B.Servo.OnServoRelease">
+            <summary>
+            Event that is raised when a servo is released
+            </summary>
+        </member>
+        <member name="T:EZ_B.Servo.ServoPortEnum">
+            <summary>
+            List of Servo Ports
+            </summary>
+        </member>
+        <member name="F:EZ_B.SureDualAxisCompass.MinPoolTimeMS">
+            <summary>
+            To prevent requests from flooding the communication channel, this limit prevents too many calls. Best to leave it alone.
+            </summary>
+        </member>
+        <member name="M:EZ_B.SureDualAxisCompass.SetCoil">
+            <summary>
+            Init the coil. Should be called as init one time
+            </summary>
+        </member>
+        <member name="M:EZ_B.SureDualAxisCompass.ResetCoil">
+            <summary>
+            Reset the Compass Coil
+            </summary>
+        </member>
+        <member name="M:EZ_B.SureDualAxisCompass.Update">
+            <summary>
+            Updates CompassData object with the current magnetic co-ordinates of the DC-SS503 Compass Module
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EZ_B.SureDualAxisCompass.Offset">
+            <summary>
+            Set the offset of the compass degrees for custom alignment
+            </summary>
+        </member>
+        <member name="M:EZ_B.TellyMate.SendText(System.String)">
+            <summary>
+            Send the text to a Tellymate on port D0 with optional carriage return
+            </summary>
+        </member>
+        <member name="M:EZ_B.TellyMate.SendText(System.String,System.Boolean)">
+            <summary>
+            Send the text to a Tellymate on port D0 with optional carriage return
+            </summary>
+        </member>
+        <member name="M:EZ_B.TellyMate.SendCommand(EZ_B.TellyMate.CmdEnum)">
+            <summary>
+            Sent a command to the TellyMate
+            </summary>
+        </member>
+        <member name="M:EZ_B.TellyMate.MoveCursor(System.Int32,System.Int32)">
+            <summary>
+            Move the cursor to specified position
+            </summary>
+        </member>
+        <member name="M:EZ_B.TellyMate.SetFontAttrib(EZ_B.TellyMate.FontAttribEnum)">
+            <summary>
+            Set the font attribute
+            </summary>
+        </member>
+        <member name="T:EZ_B.TellyMate.CmdEnum">
+            <summary>
+            List of TellyMate Commands
+            </summary>
+        </member>
+        <member name="T:EZ_B.TellyMate.FontAttribEnum">
+            <summary>
+            List of TellyMate Font Attributes
+            </summary>
+        </member>
+        <member name="M:EZ_B.Uart.SetBaudClock(EZ_B.Uart.BAUD_RATE_ENUM,System.Int32)">
+            <summary>
+            Specify the clock delay between bytes in cycles of the EZ-B's 120mhz 32 Bit ARM processor. This would only need to be used to fine tune the baudrate timing if the connected device is not very accurate or requires a diffference in timing.
+            For example, some open-source hardware platforms use Software Serial drivers, which sometimes need a little bit of tweaking. Generally, you should never need to change these values.
+            However, there is a Custom labelled baudrate which you can change for specific speeds. 
+            Anyone adjusting these speeds will need a logic analyzer, such as the Saleae Logic16 or Logic32
+            </summary>
+        </member>
+        <member name="M:EZ_B.Uart.SendSerial(EZ_B.Digital.DigitalPortEnum,EZ_B.Uart.BAUD_RATE_ENUM,System.String)">
+            <summary>
+            Send text over serial specified serial port at baud rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.Uart.SendSerial(EZ_B.Digital.DigitalPortEnum,EZ_B.Uart.BAUD_RATE_ENUM,System.Char[])">
+            <summary>
+            Send text over serial specified serial port at baud rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.Uart.SendSerial(EZ_B.Digital.DigitalPortEnum,EZ_B.Uart.BAUD_RATE_ENUM,System.Byte)">
+            <summary>
+            Send text over serial specified serial port at baud rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.Uart.SendSerial(EZ_B.Digital.DigitalPortEnum,EZ_B.Uart.BAUD_RATE_ENUM,System.Byte[])">
+            <summary>
+            Send text over serial specified serial port at baud rate
+            </summary>
+        </member>
+        <member name="M:EZ_B.Uart.UARTExpansionInit(System.Int32,System.UInt32)">
+            <summary>
+            Initialize the ez-b v4 UART. this must be called before any other UARTExpansion function.
+            </summary>
+            <param name="port">Can be 0, 1, 2</param>
+            <param name="baudRate">The baud rate to use</param>
+        </member>
+        <member name="M:EZ_B.Uart.UARTExpansionWrite(System.Int32,System.Byte[])">
+            <summary>
+            Write to the EZ-B v4 Uart
+            </summary>
+            <param name="port">Can be 0, 1, 2</param>
+            <param name="data">bytes to send</param>
+        </member>
+        <member name="M:EZ_B.Uart.UARTExpansionAvailableBytes(System.Int32)">
+            <summary>
+            Read the number of bytes available in the EZ-B v4 uart buffer
+            </summary>
+            <param name="port">Can be 0, 1, 2</param>
+            <returns>The number of bytes in the UART input buffer</returns>
+        </member>
+        <member name="M:EZ_B.Uart.UARTExpansionRead(System.Int32,System.Int32)">
+            <summary>
+            return the specified number of bytes from the ez-b v4 uart input buffer
+            </summary>
+            <param name="port">the uart port of the ez-b v4. Can be 0, 1, 2</param>
+            <param name="bytesToRead">the number of bytes to read</param>
+            <returns>byte array of data from the ez-b v4 uart buffer</returns>
+        </member>
+        <member name="M:EZ_B.Uart.UARTExpansionReadAvailable(System.Int32)">
+            <summary>
+            Read all available bytes from the UART on the EZ-B v4
+            </summary>
+            <param name="port">integer value of the port. Can be 0, 1, 2</param>
+            <returns>bytes array of the data in the ez-b v4 uart buffer</returns>
+        </member>
+    </members>
+</doc>

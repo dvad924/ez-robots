@@ -1,0 +1,13 @@
+﻿fast
+quickly
+slow
+red
+green
+blue
+purple
+big
+long
+short
+hot
+cold
+huge

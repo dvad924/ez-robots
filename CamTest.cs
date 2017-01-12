@@ -4,29 +4,37 @@ using EZ_B;
 using System.Threading;
 using KeyJ;
 
+
+
 public class HelloCamera {
        
     static EZB _ezb;
     static int idk;
     static EZBv4Video _vid;
-    static int written ;
     static NanoJPEG nj;
+    static int index;
+    static int maxindex;
     private static void Video_OnImageDataReady(byte[] imdata)
     {
         Console.WriteLine("Array Length " +
                           imdata.Length + " \n");
-        //decode jpeg
+        
         nj.njDecode(imdata);
 
-        byte[] imbuff = nj.njGetImage();
+        File.WriteAllBytes("/tmp/" + index +".jpg",imdata);
+	
+	File.WriteAllText("/tmp/" + index + ".finished","");
+	
+        //Console.WriteLine("Buffer Length " + imbuff.Length +"\n");
 
-        Console.WriteLine("Buffer Length " + imbuff.Length +"\n");
+	index = index + 1 % maxindex;
             
     }
     
     public static void Main() {
-        written = 0;
-        nj = new NanoJPEG();
+    	maxindex = 1000;
+    	index = 0;
+	nj   = new NanoJPEG();
         _ezb = new EZB("MY_BOOOOY");
         _vid = new EZBv4Video();
         Console.WriteLine("Connecting to EZ-B v4...");

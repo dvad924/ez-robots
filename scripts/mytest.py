@@ -5,13 +5,13 @@ from std_msgs.msg import String, Header
 from cv_bridge import CvBridge, CvBridgeError
 import os
 from glob import glob
-
+import zmq
 import cv2
+import numpy as np
 
 bridge = CvBridge()
 
 publisher1 = None
-
 def callback( im_msg, bbox_array ):
     print("!RECIEVED IMAGE!")
     try:
@@ -31,7 +31,7 @@ def callback( im_msg, bbox_array ):
 
         
 def main():
-    rospy.init_node( 'ez-robot-publist' )
+    rospy.init_node( 'ez_robot_publist' )
     print ( "I do Live" )
     image_topic = 'ez_robot_cam'
     
@@ -39,27 +39,49 @@ def main():
     
     outimg = outimg if outimg != "/out"     else "/ez_robot_cam/image_raw"
     
-
     print( "out: ", outimg )
 
     #identify global variables
     global publisher1
 
+    context = zmq.Context()
+    subscriber = context.socket(zmq.SUB)
+    subscriber.connect("tcp://localhost:5563")
 
     publisher1 = rospy.Publisher( outimg , Image , queue_size = 1 )
     rate = rospy.Rate(100) # no more than 100fps !! :)
+    subscription = b"Img"
+    subscriber.setsockopt(zmq.SUBSCRIBE, subscription)
+    curid = 0;
     while not rospy.is_shutdown():
-        files = glob( "/tmp/*.finished" )
-        imgfiles = map( lambda x: x[x.rfind('/')+1:x.rfind('.finished')]+'.jpg',files )
-        for f in imgfiles:
-            im = cv2.imread( os.path.join( '/tmp', f ) )
-            framemsg = bridge.cv2_to_imgmsg( im, 'bgr8' )
-            publisher1.publish( framemsg )
-            os.remove( os.path.join('/tmp', f) )
-            os.remove( os.path.join('/tmp', f.replace( 'jpg', 'finished' ) ) )
-        rate.sleep()
+        try:
+        
+            topic, data = subscriber.recv_multipart()
+            assert topic == subscription, "Wrong Topic"
+        
+            buff = np.fromstring(data,dtype=np.uint8)
+            img = cv2.imdecode(buff,1)
+            rosmsg = bridge.cv2_to_imgmsg( img )
+            publisher1.publish( rosmsg )
+            curid += 1
+            print ( "published %d" % curid )
+        except zmq.Again as e:
+            rate.sleep()
+        rate.sleep();
 
 if __name__ == '__main__':
     main()
     print("I'm Not Dead Yet")
     print("Now I'm Dead")
+
+
+
+
+        # files = glob( "/tmp/*.finished" )
+        # imgfiles = map( lambda x: x[x.rfind('/')+1:x.rfind('.finished')]+'.jpg',files )
+        # for f in imgfiles:
+        #     im = cv2.imread( os.path.join( '/tmp', f ) )
+        #     framemsg = bridge.cv2_to_imgmsg( im, 'bgr8' )
+        #     publisher1.publish( framemsg )
+        #     os.remove( os.path.join('/tmp', f) )
+        #     os.remove( os.path.join('/tmp', f.replace( 'jpg', 'finished' ) ) )

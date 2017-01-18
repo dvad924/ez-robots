@@ -75,7 +75,7 @@ class ez_robot:
         return msg
 
     def set_servo_fine_tune(self,servoport,val):
-        self.send_command("set_servo_fine_tune:" + servoport+','+val )
+        self.send_command("set_servo_fine_tune:" +','.join([ servoport,val]) )
 
     def reset_servo_min_limits(self):
         self.send_command("reset_servo_min_limits:" )
@@ -86,7 +86,7 @@ class ez_robot:
         return msg
 
     def set_servo_min(self,servoport,val):
-        self.send_command("set_servo_min:"+servoport+','+val )
+        self.send_command("set_servo_min:"+','.join([servoport,str(val)]) )
 
     def reset_servo_max_limits(self):
         self.send_command('reset_servo_max_limits:')
@@ -97,11 +97,11 @@ class ez_robot:
         return msg
 
     def set_servo_max(self,servoport,val):
-        self.send_command('set_servo_max:'+servoport+','+val)
+        self.send_command('set_servo_max:'+','.join([servoport,str(val)]) )
 
 
     def set_servo_position_speed(self,servoport,pos,speed):
-        self.send_command("set_servo_position_speed:"+','.join([servoport,pos,speed]))
+        self.send_command("set_servo_position_speed:"+','.join([servoport,str(pos),str(speed)]))
 
     def set_servo_position(self,servoport,pos):
         msg = self.send_command("set_servo_position:"+','.join([servoport,str(pos)]))

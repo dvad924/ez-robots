@@ -67,7 +67,7 @@ class ez_robot:
         return msg
 
     def reset_servo_fine_tune(self,servoport):
-        self.send_command("reset_servo_fine_tune:"+servoport,False)
+        self.send_command("reset_servo_fine_tune:"+servoport)
         
     def get_servo_fine_tune(self,servoport):
         msg = self.send_command("get_servo_fine_tune:"+servoport)
@@ -75,10 +75,10 @@ class ez_robot:
         return msg
 
     def set_servo_fine_tune(self,servoport,val):
-        self.send_command("set_servo_fine_tune:" + servoport+','+val,False)
+        self.send_command("set_servo_fine_tune:" + servoport+','+val )
 
     def reset_servo_min_limits(self):
-        self.send_command("reset_servo_min_limits:", False )
+        self.send_command("reset_servo_min_limits:" )
         
     def get_servo_min(self,servoport):
         msg = self.send_command('get_servo_min:'+servoport)
@@ -86,7 +86,7 @@ class ez_robot:
         return msg
 
     def set_servo_min(self,servoport,val):
-        self.send_command("set_servo_min:"+servoport+','+val,False)
+        self.send_command("set_servo_min:"+servoport+','+val )
 
     def reset_servo_max_limits(self):
         self.send_command('reset_servo_max_limits:')
@@ -97,20 +97,20 @@ class ez_robot:
         return msg
 
     def set_servo_max(self,servoport,val):
-        self.send_command('set_servo_max:'+servoport+','+val,False)
+        self.send_command('set_servo_max:'+servoport+','+val)
 
 
     def set_servo_position_speed(self,servoport,pos,speed):
-        self.send_command("set_servo_position_speed:"+','.join([servoport,pos,speed]),False)
+        self.send_command("set_servo_position_speed:"+','.join([servoport,pos,speed]))
 
     def set_servo_position(self,servoport,pos):
-        self.send_command("set_servo_position:"+','.join([servoport,pos]),False)
-
+        msg = self.send_command("set_servo_position:"+','.join([servoport,str(pos)]))
+        print(msg)
     def set_servo_speed(self,servoport,spd):
-        self.send_command("set_servo_speed:"+','.join([servoport,spd]),False)
+        self.send_command("set_servo_speed:"+','.join([servoport,spd]))
 
     def set_multi_servo_speed(self,ports,speed):
-        self.send_command("set_multi_servo_speed:" + ','.join(['['+','.join(ports)+']',speed]),False)
+        self.send_command("set_multi_servo_speed:" + ','.join(['['+','.join(ports)+']',speed]))
     def get_servo_speed(self,servoport):
         msg = self.send_command("get_servo_speed:" + servoport)
         print(msg)

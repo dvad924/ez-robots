@@ -22,7 +22,7 @@ public class HelloWorld {
 
         Console.WriteLine("Hello World, I am moving servo d0 to position 90!");
  
-        _ezb.Servo.SetServoPosition(Servo.ServoPortEnum.D0, 90);
+        _ezb.Servo.SetServoPosition(Servo.ServoPortEnum.D0, 0);
 
         _ezb.Disconnect();
     }

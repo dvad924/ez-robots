@@ -28,14 +28,14 @@ def commander():
 
     cmdr = ez_robot()
     cmdr.set_request_mode()
-    rate = rospy.Rate(100)
+    rate = rospy.Rate(10)
     x = 10
     print("I Started")
     while not rospy.is_shutdown():
         
-        cmdr.spin_x_deg(x)
+        cmdr.set_servo_position("D0",x)
         rate.sleep()
-        x += 10 % 360
+        x = (x + 10) % 180
         
 def imgPublisher():
     import rospy

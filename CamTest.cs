@@ -145,7 +145,7 @@ namespace ROS_EXT {
                             case "set_servo_position":
                                 bot._ezb.Servo.SetServoPosition(ch.GetPort(opts[0]),
                                                                 Int32.Parse(opts[1]) );
-                                response = "servo_position_set";
+                                response = "servo_position_set : " + opts[1];
                                 break;
                             case "set_servo_speed":
                                 bot._ezb.Servo.SetServoSpeed(ch.GetPort(opts[0]),

@@ -1,36 +1,50 @@
 #! /usr/bin/env python
-import rospy
-from sensor_msgs.msg import Image
-from std_msgs.msg import String, Header
-from cv_bridge import CvBridge, CvBridgeError
 import os
 from glob import glob
 import zmq
 import cv2
 import numpy as np
+from ez_robot import ez_robot
+from multiprocessing import Process
 
-bridge = CvBridge()
 
-publisher1 = None
-def callback( im_msg, bbox_array ):
-    print("!RECIEVED IMAGE!")
-    try:
-        cv2_img = bridge.imgmsg_to_cv2( im_msg, "bgr8" )
-        bboxes = map( todrect, bbox_array.bboxes )
-        len( bboxes )
-        if len( bboxes ) == 0:
-            return
-        f,finfo = furtherCallback( ( bboxes, cv2_img ) )    
-        frame1_message = bridge.cv2_to_imgmsg( f, "bgr8" )
-        face_msg = toFaceMsgs( finfo )
 
-        publisher1.publish( frame1_message )
-        
-    except CvBridgeError, e:
-        print( e )
 
-        
+
 def main():
+    print('initializing Nodes')
+    p1 = Process( target=imgPublisher )
+    p1.start()
+    p2 = Process( target=commander )
+    p2.start()
+    p1.join()
+    p2.join()
+
+def commander():
+    import rospy
+    from std_msgs.msg import String, Header
+    
+    rospy.init_node( 'ez_robot_cmds' )
+
+    cmdr = ez_robot()
+    cmdr.set_request_mode()
+    rate = rospy.Rate(100)
+    x = 10
+    print("I Started")
+    while not rospy.is_shutdown():
+        
+        cmdr.spin_x_deg(x)
+        rate.sleep()
+        x += 10 % 360
+        
+def imgPublisher():
+    import rospy
+    from sensor_msgs.msg import Image
+    from std_msgs.msg import String, Header
+    from cv_bridge import CvBridge, CvBridgeError
+
+    bridge = CvBridge()
+    
     rospy.init_node( 'ez_robot_publist' )
     print ( "I do Live" )
     image_topic = 'ez_robot_cam'
@@ -41,33 +55,20 @@ def main():
     
     print( "out: ", outimg )
 
-    #identify global variables
-    global publisher1
-
-    context = zmq.Context()
-    subscriber = context.socket(zmq.SUB)
-    subscriber.connect("tcp://localhost:5563")
+    ipub = ez_robot()
+    ipub.subscribe()
 
     publisher1 = rospy.Publisher( outimg , Image , queue_size = 1 )
     rate = rospy.Rate(100) # no more than 100fps !! :)
-    subscription = b"Img"
-    subscriber.setsockopt(zmq.SUBSCRIBE, subscription)
-    curid = 0;
+
+
     while not rospy.is_shutdown():
-        try:
-        
-            topic, data = subscriber.recv_multipart()
-            assert topic == subscription, "Wrong Topic"
-        
-            buff = np.fromstring(data,dtype=np.uint8)
-            img = cv2.imdecode(buff,1)
-            rosmsg = bridge.cv2_to_imgmsg( img )
-            publisher1.publish( rosmsg )
-            curid += 1
-            print ( "published %d" % curid )
-        except zmq.Again as e:
-            rate.sleep()
-        rate.sleep();
+        img = ipub.wait_for_img()
+        rosmsg = bridge.cv2_to_imgmsg( img )
+        publisher1.publish( rosmsg )
+
+
+        rate.sleep()
 
 if __name__ == '__main__':
     main()
@@ -85,3 +86,22 @@ if __name__ == '__main__':
         #     publisher1.publish( framemsg )
         #     os.remove( os.path.join('/tmp', f) )
         #     os.remove( os.path.join('/tmp', f.replace( 'jpg', 'finished' ) ) )
+
+
+        
+# def callback( im_msg, bbox_array ):
+#     print("!RECIEVED IMAGE!")
+#     try:
+#         cv2_img = bridge.imgmsg_to_cv2( im_msg, "bgr8" )
+#         bboxes = map( todrect, bbox_array.bboxes )
+#         len( bboxes )
+#         if len( bboxes ) == 0:
+#             return
+#         f,finfo = furtherCallback( ( bboxes, cv2_img ) )    
+#         frame1_message = bridge.cv2_to_imgmsg( f, "bgr8" )
+#         face_msg = toFaceMsgs( finfo )
+
+#         publisher1.publish( frame1_message )
+        
+#     except CvBridgeError, e:
+#         print( e )

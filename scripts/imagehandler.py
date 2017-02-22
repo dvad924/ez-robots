@@ -43,7 +43,9 @@ def imgPublisher():
 
     while not rospy.is_shutdown():
         img = ipub.wait_for_img()
+
         #cv2.imshow('test',img)
+        
         rosmsg = bridge.cv2_to_imgmsg( img, 'bgr8' )
         publisher1.publish( rosmsg )
         #cv2.waitKey(3)

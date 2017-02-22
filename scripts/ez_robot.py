@@ -145,3 +145,14 @@ class ez_robot:
                 time.sleep(0.01)
         
         return img
+
+    def servo_test(self):
+        self.set_request_mode()
+        import time
+        #Test for the 360 servo position
+        for x in xrange(100):
+            zero = 90
+            differential = 2 if (x%2) ==0 else -2
+            self.set_servo_position('D1',zero + differential)
+            time.sleep(0.1)
+        self.set_servo_position('D1',zero)

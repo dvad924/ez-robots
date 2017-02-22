@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using EZ_B;
   
 public class HelloWorld {
@@ -21,9 +22,17 @@ public class HelloWorld {
         }
 
         Console.WriteLine("Hello World, I am moving servo d0 to position 90!");
- 
-        _ezb.Servo.SetServoPosition(Servo.ServoPortEnum.D0, 0);
+	
+ 	// for ( int deg = -10; deg < 11 ; deg++  ){
+	//     Console.WriteLine("Moving to " + deg);
+        //     _ezb.Servo.SetServoPosition(Servo.ServoPortEnum.D0, 90 + deg);
+	//     Thread.Sleep(2000);
+	// }   
+	//_ezb.Servo.SetServoPosition(Servo.ServoPortEnum.D0, 90);
+        //Thread.Sleep(2000);
+        _ezb.Servo.SetServoPosition(Servo.ServoPortEnum.D1,80,3);
 
+        
         _ezb.Disconnect();
     }
 }
